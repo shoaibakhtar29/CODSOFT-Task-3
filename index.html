@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html> 
+   <head>
+   <meta name="viewport" content="width=device-width">
+
+  
+       <style type="text/css">
+       
+       
+     
+     
+    
+    
+     
+     body {
+     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+     background-size: 400% 400%;
+     animation: gradient 3s ease infinite;
+     overflow:hidden;
+     }
+     
+     
+     @keyframes gradient {
+     0% {
+     background-position: 0% 50%;
+     }
+     50% {
+     background-position: 100% 50%;
+     }
+     100% {
+     background-position: 0% 50%;
+     }
+     }
+       
+       /*
+       body{
+       background:linear-gradient(to top left, #33ccff 0%, #ff99cc 100%);
+       
+       height:650px;      
+       border:7px solid blueviolet;
+       border-radius:25px;
+       overflow:hidden;
+       }
+       */
+       
+      
+       
+       
+       
+       .container{
+       text-align:center;
+       margin-bottom:125px;
+       }
+       
+       table{
+       margin:auto;
+       }
+       
+       input{
+       border:5px solid black;
+       border-radius:15px;
+       margin-bottom:10px;
+       font-size:20px;
+       height:40px;
+       width:300px;
+       
+       }
+       
+       button{
+       margin:3px;
+       font-size:20px;
+       font-weight:bold;
+       height:50px;
+       width:64px;
+       background:red;
+       border:3px solid black;
+       border-radius:25px;
+       box-shadow: 3px 3px 5px;
+       }
+       
+       .calculator{
+       display:inline-block;
+       
+       padding:20px;
+       
+       }
+       
+       
+       html,
+       body {
+       margin: 0;
+       padding: 0;
+       width: 100%;
+      
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       align-items: center;
+      
+       }
+       
+       button {
+       width: 70px;
+       height: 50px;
+       border: none;
+       outline: none;
+       color: #fff;
+       background: #111;
+       cursor: pointer;
+       position: relative;
+       z-index: 0;
+       border-radius: 10px;
+       }
+       
+       button:before {
+       content: '';
+       background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+       position: absolute;
+       top: -2px;
+       left:-2px;
+       background-size: 400%;
+       z-index: -1;
+       filter: blur(5px);
+       width: calc(100% + 4px);
+       height: calc(100% + 4px);
+       animation: glowing 20s linear infinite;
+       opacity: 0;
+       transition: opacity .3s ease-in-out;
+       border-radius: 10px;
+       }
+       
+       button:active {
+       color: #000
+       }
+       
+       button:active:after {
+       background: transparent;
+       }
+       
+       button:hover:before {
+       opacity: 1;
+       }
+       
+       button:after {
+       z-index: -1;
+       content: '';
+       position: absolute;
+       width: 100%;
+       height: 100%;
+       background: #111;
+       left: 0;
+       top: 0;
+       border-radius: 10px;
+       }
+       
+       @keyframes glowing {
+       0% { background-position: 0 0; }
+       50% { background-position: 400% 0; }
+       100% { background-position: 0 0; }
+       }
+       
+       
+       
+      
+       </style>
+       
+       <title> Online Calculator </title>
+   </head>
+   
+ <body>
+    
+    
+    
+    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
+   <div class="container">
+   <h1>Online Calculator</h1>
+   
+  
+       <p> <strong><h2>Designed By Shoaib Akhtar</h2></strong> </p>
+   
+   
+   
+  <p>  <u><h3> Web Developer & Digital Marketer</h3> </u> </p>
+   
+   
+  <div class="calculator">
+  <input type="text" name="screen" id="screen" placeholder="Enter Your Number">
+   <table>
+      <tr>
+         <td><button>(</button></td>
+         <td><button>)</button></td>
+         <td><button>C</button></td>
+         <td><button>%</button></td>
+      </tr>
+      <tr>
+         <td><button>7</button></td>
+         <td><button>8</button></td>
+         <td><button>9</button></td>
+         <td><button>+</button></td>
+      </tr>
+      <tr>
+         <td><button>4</button></td>
+         <td><button>5</button></td>
+         <td><button>6</button></td>
+         <td><button>-</button></td>
+      </tr>
+      <tr>
+         <td><button>1</button></td>
+         <td><button>2</button></td>
+         <td><button>3</button></td>
+         <td><button>*</button></td>
+      </tr>
+      <tr>
+      <td><button>0</button></td>
+      <td><button>/</button></td>
+      <td><button>.</button></td>
+      <td><button>=</button></td>
+      </tr>
+    </table>
+  </div>
+<p>
+    <u><center> <h2>My Website<a href="https://rmvs.in"> rmvs.in </a> </h2> </center> </u> 
+</p>
+
+ </body>
+ 
+    <script>
+    
+    
+     
+
+      let screen = document.getElementById('screen');
+      buttons = document.querySelectorAll('button');
+      let screenValue = '';
+      for (item of buttons) {
+      item.addEventListener('click', (e) => {
+      buttonText = e.target.innerText;
+      console.log('Button text is ', buttonText);
+      if (buttonText == 'X') {
+      buttonText = '*';
+      screenValue += buttonText;
+      screen.value = screenValue;
+      }
+      else if (buttonText == 'C') {
+      screenValue = "";
+      screen.value = screenValue;
+      }
+      else if (buttonText == '=') {
+      screen.value = eval(screenValue);
+      }
+      else {
+      screenValue += buttonText;
+      screen.value = screenValue;
+      }
+      
+      })
+      }
+      
+      
+    
+    </script>
+ 
+</html>
